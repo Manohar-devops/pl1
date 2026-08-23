@@ -1,9 +1,9 @@
 pipeline {
-    agent node
+    agent none
     stages {
         stage ("Build Stage") {
             agent {
-                labels "java-agent-slave"
+                label "java-agent-slave"
             }
             steps {
                 echo "Building the artifact"
