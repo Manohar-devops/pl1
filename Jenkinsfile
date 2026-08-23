@@ -3,13 +3,13 @@ pipeline {
         label "java-agent-slave"
     }
     stages {
-        stage "Build Stage" {
+        stage ("Build Stage") {
             steps {
                 echo "Building application"
                 sh hostname -i
             }
         }
-        stage "Scripted Stage" {
+        stage ("Scripted Stage") {
             steps {
                 echo "Scripting in the java node app"
                 script {
@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }
-        stage "Sonar Stage" {
+        stage ("Sonar Stage") {
             steps {
                 echo "Doing Sonar"
             }
