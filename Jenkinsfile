@@ -18,8 +18,9 @@ pipeline {
                 echo "Scripting in the java node app"
                 script {
                     def x = 10
-                    if x == 10
-                       println ("Yes, the no. is $x")
+                    if (x == 10) {
+                        println ("Yes, the no. is $x")
+                    }
                     else {
                         println ("Enter the correct value")
                     }
