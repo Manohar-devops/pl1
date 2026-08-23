@@ -14,7 +14,7 @@ pipeline {
                 echo "This is 1st step from 2nd stage"
                 script {
                     def x = 10
-                    if x == 10 {
+                    if (x == 10) {
                         println ("Yes, the value is $x")
                     }
                     else
