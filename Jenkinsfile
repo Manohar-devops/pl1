@@ -1,3 +1,4 @@
+# If we want to implement custom code in groovy, all those code should be implemented in script block
 pipeline {
     agent {
         label "java-agent-slave"
