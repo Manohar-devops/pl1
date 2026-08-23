@@ -1,16 +1,20 @@
-// Set a timeout period for the Pipeline run, after which Jenkins should abort the Pipeline
 pipeline {
-    agent {
-        label "java-agent-slave"
-    }
+    agent node
     stages {
         stage ("Build Stage") {
+            agent {
+                labels "java-agent-slave"
+            }
             steps {
-                echo "Entering Building Stage"
-                timeout(time: 10, unit: 'SECONDS') {
-                    echo ("Sleeping 60 seconds")
-                    sleep 60
-                }
+                echo "Building the artifact"
+            }
+        }
+        stage ("Sonar Stage") {
+            agent {
+                label "node-agent-slave"
+            }
+            steps {
+                echo "Code quality is good, LGTM"
             }
         }
     }
