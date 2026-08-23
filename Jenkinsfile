@@ -1,14 +1,12 @@
+// Set a timeout period for the Pipeline run, after which Jenkins should abort the Pipeline
 pipeline {
-    agent any
+    agent {
+        label "java-agent-slave"
+    }
     stages {
         stage ("Build Stage") {
-            steps {
-                echo "Entering Build Stage"
-                retry(3) {
-                    echo "Welcome to Jenkins"
-                    error "Testing retry block using error"
-                }
-            }
+            echo "Entering Building Stage"
+            timeout(time: 5, unit: 'SECONDS')
         }
     }
 }
