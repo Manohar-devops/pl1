@@ -1,19 +1,15 @@
 pipeline {
-    agent none
+    agent {
+        label "java-agent-slave"
+    }
     stages {
         stage "Build Stage" {
-            agent {
-                label "java-agent-slave"
-            }
             steps {
-                echo "This is a java node app"
+                echo "Building application"
                 sh hostname -i
             }
         }
         stage "Scripted Stage" {
-            agent {
-                label "java-agent-slave"
-            }
             steps {
                 echo "Scripting in the java node app"
                 script {
@@ -28,11 +24,8 @@ pipeline {
             }
         }
         stage "Sonar Stage" {
-            agent {
-                label "node-agent-slave"
-            }
             steps {
-                echo "This is node app"
+                echo "Doing Sonar"
             }
         }
 
