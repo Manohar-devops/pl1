@@ -25,8 +25,11 @@ pipeline {
             }
         }
         stage ("Sonar Stage") {
-            echo "This is 1st step under Sonar stage"
-            echo "Code Quality is good, LGTM"
+            steps {
+                echo "This is 1st step under Sonar stage"
+                echo "Code Quality is good, LGTM"
+            }
+
         }
     }
 }
