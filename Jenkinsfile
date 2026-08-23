@@ -7,7 +7,10 @@ pipeline {
         stage ("Build Stage") {
             steps {
                 echo "Entering Building Stage"
-                timeout(time: 5, unit: 'SECONDS')
+                timeout(time: 10, unit: 'SECONDS') {
+                    echo ("Sleeping 60 seconds")
+                    sleep 60
+                }
             }
         }
     }
