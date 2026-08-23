@@ -20,6 +20,7 @@ pipeline {
                     else
                         println ("Enter the correct value")
                 }
+                sleep 10
             }
         }
         stage ("Sonar Stage") {
