@@ -1,23 +1,39 @@
 pipeline {
     agent none
     stages {
-        stage ("This is 1st Stage") {
+        stage "Build Stage" {
             agent {
                 label "java-agent-slave"
             }
             steps {
-                echo "Welcome to Jenkins pipelines"
-                echo "This is Java App"
+                echo "This is a java node app"
+                sh hostname -i
             }
         }
-        stage ("This is 2nd stage") {
+        stage "Scripted Stage" {
+            agent {
+                label "java-agent-slave"
+            }
+            steps {
+                echo "Scripting in the java node app"
+                script {
+                    def x = 10
+                    if x == 10
+                       println ("Yes, the no. is $x")
+                    else {
+                        println ("Enter the correct value")
+                    }
+                }
+            }
+        }
+        stage "Sonar Stage" {
             agent {
                 label "node-agent-slave"
             }
             steps {
-                echo "Pipeline is succeded"
-                echo "This is Node App"
+                echo "This is node app"
             }
         }
+
     }
 }
