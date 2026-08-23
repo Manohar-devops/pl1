@@ -5,29 +5,31 @@ pipeline {
     stages {
         stage ("Build Stage") {
             steps {
-                echo "Building application"
-                sh hostname -i
+                echo "This is steps from stage under stages"
+                // linux commands
+                sh 'hostname -i'
             }
         }
         stage ("Scripted Stage") {
             steps {
-                echo "Scripting in the java node app"
+                echo "This is 2nd step from 2nd stage"
+                // Write custom code
                 script {
+                    //Define variable
                     def x = 10
-                    if (x == 10) {
-                        println ("Yes, the no. is $x")
+                    if (x==10) {
+                        println("Yes, the value is $x")
                     }
-                    else {
-                        println ("Enter the correct value")
-                    }
+                    else
+                        println("Enter the correct value")
                 }
+                sleep 10
             }
         }
-        stage ("Sonar Stage") {
+        stage ("Executing Sonar Stage") {
             steps {
-                echo "Doing Sonar"
+                echo "Code Quality is completed, LGTM"
             }
         }
-
     }
 }
