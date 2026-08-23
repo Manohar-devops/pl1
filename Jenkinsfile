@@ -3,12 +3,11 @@ pipeline {
     stages {
         stage ("Build Stage") {
             steps {
-                echo "Entering Building Block"
+                echo "Entering Build Stage"
                 retry(3) {
-                    echo "Welcome to jenkins"
-                    error "testing retry block using error"
+                    echo "Welcome to Jenkins"
+                    error "Testing retry block using error"
                 }
-                echo "***** After 3 retry's *****"
             }
         }
     }
