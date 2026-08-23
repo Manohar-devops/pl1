@@ -5,8 +5,10 @@ pipeline {
     }
     stages {
         stage ("Build Stage") {
-            echo "Entering Building Stage"
-            timeout(time: 5, unit: 'SECONDS')
+            steps {
+                echo "Entering Building Stage"
+                timeout(time: 5, unit: 'SECONDS')
+            }
         }
     }
 }
