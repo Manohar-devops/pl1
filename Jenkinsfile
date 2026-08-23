@@ -1,4 +1,4 @@
-# On failure, retry the entire Pipeline the specified number of times. For example: options { retry(3) }
+#On failure, retry the entire Pipeline the specified number of times.
 pipeline {
     agent any
     stages {
